@@ -37,7 +37,7 @@ export default class AdvancedSet<T> {
     return this._set;
   }
 
-  public static Ø() {}
+  // public static Ø() {}
 
   /*
    * Returns a new set containing the shared elements between this set and the given parameter set
@@ -46,7 +46,7 @@ export default class AdvancedSet<T> {
     return new AdvancedSet(...this.toArray().filter((x) => set.has(x)));
   }
 
-  public toArray(): Array<T> {
+  public toArray(): T[] {
     return Array.from(this._set);
   }
 
@@ -93,7 +93,7 @@ export default class AdvancedSet<T> {
   }
 
   public equals(otherSet: AdvancedSet<T>): boolean {
-    return otherSet.size === this.size && otherSet.filter((x) => this.has(x)).size == this.size;
+    return otherSet.size === this.size && otherSet.filter((x) => this.has(x)).size === this.size;
   }
 
   public isEmpty(): boolean {
@@ -120,5 +120,5 @@ export default class AdvancedSet<T> {
     return this.intersection(setB).isEmpty();
   }
 
-  //partialSubset, isProperSubsetOf, isProperSupersetOf
+  // partialSubset, isProperSubsetOf, isProperSupersetOf, multi set intersection
 }

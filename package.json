@@ -1,16 +1,30 @@
 {
-  "name": "AdvancedSets",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "name": "advanced-sets",
+  "version": "0.0.1",
+  "description": "A TypeScript library that expands upon the functionality of Sets",
+  "main": "lib/AdvancedSet.js",
+  "types": "lib/AdvancedSet.d.ts",
   "scripts": {
     "test": "jest --config jestconfig.json",
     "build": "tsc",
     "format": "prettier --write \"src/**/*.ts\"",
-    "lint": "tslint -p tsconfig.json"
+    "lint": "tslint -p tsconfig.json",
+    "prepare": "npm run build",
+    "prepublishOnly": "npm test && npm run lint",
+    "preversion": "npm run lint",
+    "version": "npm run format && git add -A src",
+    "postversion": "git push && git push --tags"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "advanced",
+    "sets",
+    "intersection",
+    "union",
+    "complement",
+    "subset",
+    "superset"
+  ],
+  "author": "JP Bulman <jpbulman11@gmail.com>",
   "license": "ISC",
   "devDependencies": {
     "@types/jest": "^26.0.19",
