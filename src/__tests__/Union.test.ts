@@ -5,7 +5,7 @@ test('An empty set union with another empty set should be an empty set', () => {
 });
 
 test('An empty set union with a non empty set should be that non empty set', () => {
-  const empty = new AdvancedSet();
+  const empty = new AdvancedSet<number>();
   const nonEmpty = new AdvancedSet(5, 6, 10);
   expect(nonEmpty.union(empty).toArray()).toMatchObject([5, 6, 10]);
   // Reflexive property

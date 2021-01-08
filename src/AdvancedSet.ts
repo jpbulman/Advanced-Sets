@@ -42,8 +42,8 @@ export default class AdvancedSet<T> {
   /*
    * Returns a new set containing the shared elements between this set and the given parameter set
    */
-  public intersection(set: AdvancedSet<T>): AdvancedSet<T> {
-    return new AdvancedSet(...this.toArray().filter((x) => set.has(x)));
+  public intersection(setB: AdvancedSet<T>): AdvancedSet<T> {
+    return new AdvancedSet(...this.toArray().filter((x) => setB.has(x)));
   }
 
   public toArray(): T[] {
@@ -60,7 +60,7 @@ export default class AdvancedSet<T> {
     }
   }
 
-  public createSubSet(...initialValues: T[] | never): AdvancedSet<T> {
+  public createSubset(...initialValues: T[] | never): AdvancedSet<T> {
     // Make sure all of the values are inside the universal set
     for (const i of initialValues) {
       if (!this._set.has(i)) {
@@ -82,7 +82,7 @@ export default class AdvancedSet<T> {
     return new AdvancedSet<R>(...this.toArray().map(mapFunc));
   }
 
-  public reduce<R>(reduceFunc: (accumulator: R, currVal: T) => any, startingValue: R): R {
+  public reduce<R>(reduceFunc: (accumulator: R, currVal: T) => R, startingValue: R): R {
     return this.toArray().reduce(reduceFunc, startingValue);
   }
 
@@ -120,5 +120,6 @@ export default class AdvancedSet<T> {
     return this.intersection(setB).isEmpty();
   }
 
-  // partialSubset, isProperSubsetOf, isProperSupersetOf, multi set intersection
+  // partialSubset, isProperSubsetOf, isProperSupersetOf, multi set intersection,
+  // power sets, subset by function
 }

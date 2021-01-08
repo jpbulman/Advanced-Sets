@@ -1,8 +1,8 @@
 # Advanced Sets
 
-A TypeScript library that builds extra functionality on top of the standard `Set()`
+Advanced Sets is a TS/JS library that builds extra functionality on top of the standard `Set()`
 
-```ts
+```js
 const setA = new AdvancedSet(1, 2, 4);
 const setB = new AdvancedSet(2, 4, 6, 8);
 
@@ -18,28 +18,4 @@ setA.filter((a) => a > 1); // AdvancedSet(2, 4)
 setA.map((x) => x * 2); // AdvancedSet(2, 4, 8)
 
 setA.add(5); // AdvancedSet(1, 2, 4, 5)
-```
-
-## Installation
-
-```
-npm install AdvancedSets
-```
-
-## Documentation
-
-Coming soon!
-
-## Local Setup
-
-First, clone the repository and cd into the folder. Then, install all of the dependencies with
-
-```
-npm install
-```
-
-Run the test suite with
-
-```
-npm test
 ```

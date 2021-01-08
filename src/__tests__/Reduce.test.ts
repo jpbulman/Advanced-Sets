@@ -3,7 +3,7 @@ import AdvancedSet from '../AdvancedSet';
 const sum = (acc: number, curr: number) => acc + curr;
 
 test('Reduce with an empty set and an empty function should return 0', () => {
-  expect(new AdvancedSet().reduce(() => true, 0)).toBe(0);
+  expect(new AdvancedSet().reduce(() => 1, 0)).toBe(0);
 });
 
 test('Reduce with an empty set and an add funciton should return 0', () => {
