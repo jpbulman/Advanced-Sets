@@ -14,8 +14,8 @@ export default class AdvancedSet<T> {
     return this._set.has(val);
   }
 
-  public add(val: T): AdvancedSet<T> {
-    this._set.add(val);
+  public add(...vals: T[]): AdvancedSet<T> {
+    for (const val of vals) this._set.add(val);
     return this;
   }
 
@@ -120,6 +120,6 @@ export default class AdvancedSet<T> {
     return this.intersection(setB).isEmpty();
   }
 
-  // partialSubset, isProperSubsetOf, isProperSupersetOf, multi set intersection,
+  // isProperSubsetOf, isProperSupersetOf, multi set intersection,
   // power sets, subset by function
 }
