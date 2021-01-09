@@ -20,4 +20,5 @@
 - [reduce](reduce.md)
 - [size](size.md)
 - [toArray](toarray.md)
+- [toSimpleSet](tosimpleset.md)
 - [union](union.md)
