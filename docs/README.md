@@ -1,6 +1,6 @@
 # Advanced Sets
 
-Advanced Sets is a TS/JS library that builds extra functionality on top of the standard `Set()`
+Advanced Sets is a JS/TS library that builds extra functionality on top of the standard `Set()`
 
 ## Basic Operations
 
@@ -34,4 +34,10 @@ setA
   .filter((x) => x > 10)
   .union(new AdvancedSet(5))
   .reduce((acc, curr) => acc + curr); // 115
+```
+
+## Installation
+
+```
+npm i advanced-sets
 ```
