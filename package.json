@@ -1,6 +1,6 @@
 {
   "name": "advanced-sets",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A JS/TS library that expands upon the functionality of Sets",
   "main": "lib/AdvancedSet.js",
   "types": "lib/AdvancedSet.d.ts",
