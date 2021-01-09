@@ -50,7 +50,7 @@ export default class AdvancedSet<T> {
       smallest = this;
       other = setB;
     }
-    
+
     return new AdvancedSet(...smallest.toArray().filter((x) => other.has(x)));
   }
 
@@ -102,7 +102,7 @@ export default class AdvancedSet<T> {
 
   public equals(otherSet: AdvancedSet<T>): boolean {
     if (otherSet.size !== this.size) return false;
-    for (const val of otherSet) {
+    for (const x of otherSet) {
       if (!this.has(x)) return false;
     }
     return true;
@@ -130,6 +130,18 @@ export default class AdvancedSet<T> {
 
   public isDisjointWith(setB: AdvancedSet<T>): boolean {
     return this.intersection(setB).isEmpty();
+  }
+
+  [Symbol.iterator]() {
+    let index = -1;
+    let data = this.toArray();
+
+    return {
+      next: () => ({
+        value: data[++index],
+        done: index === this.size - 1
+      })
+    };
   }
 
   // partialSubset, isProperSubsetOf, isProperSupersetOf, multi set intersection,
