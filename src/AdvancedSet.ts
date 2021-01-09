@@ -43,7 +43,15 @@ export default class AdvancedSet<T> {
    * Returns a new set containing the shared elements between this set and the given parameter set
    */
   public intersection(setB: AdvancedSet<T>): AdvancedSet<T> {
-    return new AdvancedSet(...this.toArray().filter((x) => setB.has(x)));
+    let smallest = setB;
+    let other = this;
+    
+    if (this.size < setB.size) {
+      smallest = this;
+      other = setB;
+    }
+    
+    return new AdvancedSet(...smallest.toArray().filter((x) => other.has(x)));
   }
 
   public toArray(): T[] {
@@ -93,7 +101,11 @@ export default class AdvancedSet<T> {
   }
 
   public equals(otherSet: AdvancedSet<T>): boolean {
-    return otherSet.size === this.size && otherSet.filter((x) => this.has(x)).size === this.size;
+    if (otherSet.size !== this.size) return false;
+    for (const val of otherSet) {
+      if (!this.has(x)) return false;
+    }
+    return true;
   }
 
   public isEmpty(): boolean {
