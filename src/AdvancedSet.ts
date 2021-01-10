@@ -43,8 +43,8 @@ export default class AdvancedSet<T> {
    * Returns a new set containing the shared elements between this set and the given parameter set
    */
   public intersection(setB: AdvancedSet<T>): AdvancedSet<T> {
-    let smallest = setB;
-    let other = this;
+    let smallest: AdvancedSet<T> = setB;
+    let other: AdvancedSet<T> = this;
     
     if (this.size < setB.size) {
       smallest = this;
@@ -139,7 +139,7 @@ export default class AdvancedSet<T> {
     return {
       next: () => ({
         value: data[++index],
-        done: index === this.size - 1
+        done: index === this.size
       })
     };
   }
