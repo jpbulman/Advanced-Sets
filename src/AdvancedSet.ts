@@ -14,8 +14,8 @@ export default class AdvancedSet<T> {
     return this._set.has(val);
   }
 
-  public add(val: T): AdvancedSet<T> {
-    this._set.add(val);
+  public add(...vals: T[]): AdvancedSet<T> {
+    for (const val of vals) this._set.add(val);
     return this;
   }
 
@@ -45,7 +45,7 @@ export default class AdvancedSet<T> {
   public intersection(setB: AdvancedSet<T>): AdvancedSet<T> {
     let smallest: AdvancedSet<T> = setB;
     let other: AdvancedSet<T> = this;
-    
+
     if (this.size < setB.size) {
       smallest = this;
       other = setB;
@@ -139,8 +139,8 @@ export default class AdvancedSet<T> {
     return {
       next: () => ({
         value: data[++index],
-        done: index === this.size
-      })
+        done: index === this.size,
+      }),
     };
   }
 
