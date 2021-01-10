@@ -10,6 +10,7 @@
 - [equals](equals.md)
 - [filter](filter.md)
 - [forEach](foreach.md)
+- [for...of](forof.md)
 - [has](has.md)
 - [intersection](intersection.md)
 - [isDisjointWith](isdisjointwith.md)
