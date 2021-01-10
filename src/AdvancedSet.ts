@@ -4,6 +4,8 @@ export default class AdvancedSet<T> {
   // The parent, or 'universal', set. This is defined when a child is created with 'createSubSet()'
   private _universalSet?: AdvancedSet<T> = undefined;
 
+  private _min?: number = undefined;
+
   constructor(...initialValues: T[] | never) {
     for (const val of initialValues) {
       this._set.add(val);
@@ -82,6 +84,10 @@ export default class AdvancedSet<T> {
     return newSet;
   }
 
+  public min(): number | undefined {
+    return this._min;
+  }
+
   public filter(filterFunc: (currVal: T) => boolean): AdvancedSet<T> {
     return new AdvancedSet<T>(...this.toArray().filter(filterFunc));
   }
@@ -144,6 +150,5 @@ export default class AdvancedSet<T> {
     };
   }
 
-  // partialSubset, isProperSubsetOf, isProperSupersetOf, multi set intersection,
   // power sets, subset by function
 }
