@@ -27,4 +27,4 @@ setA.equals(setC); // false
 
 Introduced in: 0.0.1
 
-Last updated in: 0.0.1
+Last updated in: 0.0.3
