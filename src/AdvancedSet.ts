@@ -144,6 +144,14 @@ export default class AdvancedSet<T> {
     };
   }
 
+  public some(test: (x: T) => boolean): boolean {
+    return this.toArray().some(test);
+  }
+
+  public every(test: (x: T) => boolean): boolean {
+    return this.toArray().every(test);
+  }
+
   // partialSubset, isProperSubsetOf, isProperSupersetOf, multi set intersection,
   // power sets, subset by function
 }
