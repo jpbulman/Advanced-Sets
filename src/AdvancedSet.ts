@@ -152,6 +152,16 @@ export default class AdvancedSet<T> {
     return this.toArray().every(test);
   }
 
+  public max(): number {
+    let arrSet = (this.toArray() as unknown[]) as number[];
+    return Math.max(...arrSet);
+  }
+
+  public min(): number {
+    let arrSet = (this.toArray() as unknown[]) as number[];
+    return Math.min(...arrSet);
+  }
+
   // partialSubset, isProperSubsetOf, isProperSupersetOf, multi set intersection,
   // power sets, subset by function
 }
