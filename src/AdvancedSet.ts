@@ -144,6 +144,15 @@ export default class AdvancedSet<T> {
     };
   }
 
+  public maxValue(setB: AdvancedSet<number>): number {
+    let arrSet = Array.from(setB);
+    return Math.max(...arrSet);
+  }
+
+  public minValue(setB: AdvancedSet<number>): number {
+    let arrSet = Array.from(setB);
+    return Math.min(...arrSet);
+  }
   // partialSubset, isProperSubsetOf, isProperSupersetOf, multi set intersection,
   // power sets, subset by function
 }
