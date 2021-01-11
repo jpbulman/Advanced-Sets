@@ -161,6 +161,7 @@ export default class AdvancedSet<T> {
     let arrSet = Array.from(setB);
     return Math.min(...arrSet);
   }
+
   // partialSubset, isProperSubsetOf, isProperSupersetOf, multi set intersection,
   // power sets, subset by function
 }
