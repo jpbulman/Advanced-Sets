@@ -25,3 +25,22 @@ test('Intersection with different set - no shared elements', () => {
 test('Intersection of empty set with empty set', () => {
   expect(new AdvancedSet().intersection(new AdvancedSet()).toArray()).toEqual([]);
 });
+
+test('Intersection of three empty sets should be empty set', () => {
+  expect(new AdvancedSet().intersection(new AdvancedSet(), new AdvancedSet()).equals(new AdvancedSet())).toBe(true);
+});
+
+test('Intersection with an empty set and two non empty sets should be empty set', () => {
+  expect(new AdvancedSet().intersection(new AdvancedSet(1, 2), new AdvancedSet(3, 4)).equals(new AdvancedSet())).toBe(
+    true,
+  );
+});
+
+test('Intersection with multiple non empty sets should be the elements they share', () => {
+  const setA = new AdvancedSet(1, 2, 3, 4);
+  const setB = new AdvancedSet(0, 2, 3, 5, 6);
+  const setC = new AdvancedSet(1, 2, 3, 4, 6);
+
+  const expected = new AdvancedSet(2, 3);
+  expect(setA.intersection(setB, setC).equals(expected)).toBe(true);
+});
