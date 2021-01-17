@@ -42,7 +42,7 @@ export default class AdvancedSet<T> {
   /*
    * Returns a new set containing the shared elements between this set and the given parameter set
    */
-  public intersection(setB: AdvancedSet<T>): AdvancedSet<T> {
+  private twoSetIntersection(setB: AdvancedSet<T>): AdvancedSet<T> {
     let smallest: AdvancedSet<T> = setB;
     let other: AdvancedSet<T> = this;
 
@@ -52,6 +52,22 @@ export default class AdvancedSet<T> {
     }
 
     return new AdvancedSet(...smallest.toArray().filter((x) => other.has(x)));
+  }
+
+  public intersection(...sets: AdvancedSet<T>[]): AdvancedSet<T> {
+    let inter = sets.pop();
+
+    if (inter === undefined) {
+      return new AdvancedSet();
+    }
+
+    inter = inter.twoSetIntersection(this);
+
+    for (const currSet of sets) {
+      inter = inter.twoSetIntersection(currSet);
+    }
+
+    return inter;
   }
 
   public toArray(): T[] {
@@ -151,7 +167,4 @@ export default class AdvancedSet<T> {
   public every(test: (x: T) => boolean): boolean {
     return this.toArray().every(test);
   }
-
-  // partialSubset, isProperSubsetOf, isProperSupersetOf, multi set intersection,
-  // power sets, subset by function
 }
